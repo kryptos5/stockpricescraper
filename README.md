@@ -15,11 +15,7 @@ I keep track of my portfolio in a Google Sheet. To fetch stock prices, the strai
 
 3. The page displays the portfolio in the form of a `table`. With `BeautifulSoup`, the information is extracted from the `td` tags.
 
-4. Now, what's left is to write the results to the Google Sheet. This is done through the `ezSheets` package.
-
-5. To enable the script to access the Google Sheet, follow the steps [here](https://developers.google.com/workspace/drive/api/quickstart/python) to enable the API and download the credentials to the root directory of this project as `credentials-sheets.json`.
-
-6. 
+4. Now, what's left is to write the results to the Google Sheet. This is done through the `ezSheets` package (documented [here](https://pypi.org/project/EZSheets/)), an interface to the Google Sheets API that makes common spreadsheet tasks easy to perform.
 
 <figure>
   <img src="screenshots/googlesheet.png" alt="Example Outcome in Google Sheet">
@@ -27,10 +23,9 @@ I keep track of my portfolio in a Google Sheet. To fetch stock prices, the strai
 </figure>
 
 ## How to Use the Script
-1. Open Config.py, edit:
-    1. ID of your Google Sheet
-    2. Name of the sheet in the Google Sheet
-    3. List of URLs for public watchlists or portfolios on i3investor (eg. "https://klse.i3investor.com/servlets/pfs/123456plg.jsp")
+1. Open Config.py, edit the variables as necessary. NOte that the script is able to scrape from mutiple price feeds.
+
+2. Follow the steps [here](https://developers.google.com/workspace/drive/api/quickstart/python) to enable the API and download the credentials to the root directory of this project as `credentials-sheets.json`.
 
 ## Running Stock Price Scraper in a Virtual Environment
 Python virtual environments are isolated spaces that allow you to manage project-specific dependencies without affecting your system's global Python installation. To do so, follow the steps below.
@@ -53,7 +48,7 @@ Press any key to continue . . .
 ```
 
 ## Running Stock Price Scraper
-1. Double click on `run.bat`. Wait for the script to finish running.
+Double click on `run.bat`. Wait for the script to finish running.
 ```bash
 Activating virtual environment...
 Running script...
@@ -66,4 +61,10 @@ Getting price feed from: https://klse.i3investor.com/servlets/pfs/120437plg.jsp
 ('MAYBANK', '10.12')
 ('SUNREIT', '1.82')
 ('GENM', '1.66')
+...Trimmed...
+Price feed retrieved successfully.
+Updating spreadsheet...
+Spreadsheet updated successfully.
+Done!
+Press any key to continue . . .
 ```
